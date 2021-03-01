@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div id="demo">
+    <button>add</button>
+    <ul>
+        <li>test1</li>
+        <li>test2</li>
+        <li>test3</li>
+    </ul>
+</div>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+$('#demo li').bind('click', function(){
+	alert($(this).text());
+});
+
+//비동적 처리
+/* $('#demo button').bind('click', function(){
+	$('#demo').append('<li><font color=red>added</font></li>');
+}); */
+
+//동적 처리
+$('#demo button').bind('click', function(){
+	$('#demo li').unbind('click');
+	$('#demo ul').append('<li><font color=red>added</font></li>').find($('li')).click(function(){
+		alert($(this).text());
+	});
+});
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
